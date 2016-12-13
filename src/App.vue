@@ -1,29 +1,24 @@
 <script>
-import { actions } from './store';
+    import Text from './component/Text'
+    import Message from './component/Message'
+    import List from './component/List'
+    import Card from './component/Card'
 
-import Card from 'components/card';
-import List from 'components/list';
-import Text from 'components/text';
-import Message from 'components/message';
-
-export default {
-    components: { Card, List, Text, Message },
-    vuex: {
-        actions: actions
-    },
-    created () {
-        this.initData();
+    export default {
+        components: {
+            Text, Message, List, Card
+        }
     }
-}
+
 </script>
 
 <template>
 <div id="app">
-    <div class="sidebar">
+    <div id="sidebar">
         <card></card>
         <list></list>
     </div>
-    <div class="main">
+    <div id="container">
         <message></message>
         <text></text>
     </div>
@@ -31,36 +26,23 @@ export default {
 </template>
 
 <style lang="less" scoped>
-#app {
-    margin: 20px auto;
-    width: 800px;
-    height: 600px;
-
-    overflow: hidden;
-    border-radius: 3px;
-
-    .sidebar, .main {
+    #app {
+        border-radius: 3px;
+        height: 600px;
+        width: 800px;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+    #sidebar {
+        width: 200px;
+        float: left;
+        background-color: #2e3238;
         height: 100%;
     }
-    .sidebar {
+    #container {
+        width: 600px;
+        height: 100%;
         float: left;
-        width: 200px;
-        color: #f4f4f4;
-        background-color: #2e3238;
+        background-color: #fff;
     }
-    .main {
-        position: relative;
-        overflow: hidden;
-        background-color: #eee;
-    }
-    .text {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-    }
-    .message {
-        height: ~'calc(100% - 160px)';
-    }
-}
 </style>
