@@ -1,6 +1,6 @@
 # Chat by Vue + Webpack
 
-效果图：
+[效果图]
 <img width="600" src="https://github.com/lltt-always/my-vue-chat/blob/master/intro.png">
 
 ## Build Setup
