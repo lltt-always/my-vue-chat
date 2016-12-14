@@ -60,6 +60,9 @@ const mutations = {
                 break;
             }
         }
+    },
+    CHANGE_FILTERKEY (state, payload) {
+        state.filterkey = payload;
     }
 }
 

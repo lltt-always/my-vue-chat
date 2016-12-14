@@ -5,10 +5,8 @@
             <span>{{ user.username }}</span>
         </div>
         <div class="searchbar">
-            <input placeholder="search user..."/>
+            <input placeholder="search user..." v-model="keyword" @keyup="searchUser"/>
         </div>
-        <div v-if="abc.leng">ok</div>
-        <div v-else>no</div>
     </div>
 </template>
 <style scoped lang="less">
@@ -40,11 +38,24 @@
     }
 </style>
 <script>
+import { changefilterkey } from '../action.js'
     export default{
         data(){
             return{
                 user: this.$store.state.user,
-                abc: [1,2]
+                keyword: ''
+            }
+        },
+        vuex: {
+            actions: {
+                changefilterkey
+            }
+        },
+        methods: {
+            searchUser (e) {
+                if(e.keyCode) {
+                    this.changefilterkey(this.keyword);
+                }
             }
         }
     }

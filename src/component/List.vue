@@ -39,14 +39,22 @@ import { changesessionid } from '../action.js'
     export default{
         data(){
             return{
-                sessions: this.$store.state.sessions,
-                currentSessionId: this.$store.state.currentSessionId
-            }
+/*                sessions: this.$store.state.sessions
+*/            }
         },
         vuex: {
             getters: {
                 currentsessionid: (state) => {
                     return state.currentSessionId
+                },
+                sessions: (state) => {
+                    function search (session) {
+                        return session.contact.name.indexOf(state.filterkey) != -1;
+                    };
+                    function filtersessions (sessions) {
+                        return sessions.filter(search)
+                    }
+                    return filtersessions(state.sessions)
                 }
             },
             actions: {
