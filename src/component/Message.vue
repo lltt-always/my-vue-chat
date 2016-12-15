@@ -6,7 +6,7 @@
             </p>
             <div class="msgcontent" :class="{ sendmsg: msg.type === 'send' }">
                 <img :src="session.contact.img" v-if="msg.type === 'receive'"/>
-                <span>{{ msg.content }}</span>
+                <span :class="{textr: msg.type === 'receive', texts: msg.type === 'send'}">{{ msg.content }}</span>
                 <img :src="userimg" v-if="msg.type === 'send'"/>
             </div>
         </div>
@@ -35,10 +35,33 @@
                 vertical-align: middle;
                 margin: 0 10px;
             }
-            span {
+            .textr {
                 background-color: #ffffff;
+                display: inline-block;
+                position: relative;
                 padding: 5px;
-                border-radius: 2px;
+                border-radius: 4px;
+                &:before {
+                    content: "";
+                    border: 6px solid transparent;
+                    position: absolute;
+                    right: 100%;
+                    border-right-color: #ffffff;
+                }
+            }
+            .texts {
+                background-color: #b2e281;
+                display: inline-block;
+                position: relative;
+                padding: 5px;
+                border-radius: 4px;
+                &:before {
+                    content: "";
+                    border: 6px solid transparent;
+                    position: absolute;
+                    left: 100%;
+                    border-left-color: #b2e281;
+                }
             }
         }
         .sendmsg {
