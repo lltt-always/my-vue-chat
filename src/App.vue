@@ -1,12 +1,14 @@
 <script>
     import Text from './component/Text'
     import Message from './component/Message'
-    import List from './component/List'
     import Card from './component/Card'
+    import Menu from './component/Menu'
+    import store from './store'
 
     export default {
+        store: store,
         components: {
-            Text, Message, List, Card
+            Text, Message, Card, Menu
         }
     }
 
@@ -14,9 +16,10 @@
 
 <template>
 <div id="app">
+    <router-view></router-view>
     <div id="sidebar">
         <card></card>
-        <list></list>
+        <menu></menu>
     </div>
     <div id="container">
         <message></message>

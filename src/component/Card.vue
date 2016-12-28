@@ -43,6 +43,7 @@ import { changefilterkey } from '../action.js'
         data(){
             return{
                 user: this.$store.state.user,
+                /*The use of the this.$store is not available when using Vuex and vue-router. This may be an issue with vue-router rather than Vuex.*/
                 keyword: ''
             }
         },
@@ -51,6 +52,11 @@ import { changefilterkey } from '../action.js'
                 changefilterkey
             }
         },
+        /*computed: {
+            user () {
+                return store.state.user
+            }
+        },*/
         methods: {
             searchUser (e) {
                 if(e.keyCode) {
